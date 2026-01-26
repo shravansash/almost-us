@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout – Almost Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Times New Roman", Times, serif;
+      background: #ffffff;
+      color: #0F172A;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Slide-up animation */
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .box {
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      padding: 40px 25px;
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+      animation: slideUp 0.8s ease-out forwards;
+    }
+
+    .item {
+      opacity: 0;
+      animation: slideUp 0.7s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.35s; }
+    .delay-3 { animation-delay: 0.5s; }
+    .delay-4 { animation-delay: 0.65s; }
+    .delay-5 { animation-delay: 0.8s; }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      color: #9B3A3A;
+    }
+
+    .qr {
+      width: 220px;
+      margin: 20px auto;
+      display: block;
+      animation: floatQR 4s ease-in-out infinite;
+    }
+
+    @keyframes floatQR {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+
+    .upi {
+      font-size: 0.95rem;
+      color: #444;
+      margin-top: 10px;
+    }
+
+    .steps {
+      text-align: left;
+      font-size: 0.95rem;
+      margin: 25px 0;
+      line-height: 1.6;
+    }
+
+    .steps span {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .whatsapp-btn {
+      display: block;
+      text-decoration: none;
+      background: #25D366;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 25px;
+      transition: transform 0.2s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.03);
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+
+    <h1 class="item delay-1">Almost Us</h1>
+    <div class="price item delay-2">E-book • ₹149</div>
+
+    <img src="upi-qr.png" style="width:200px;opacity:1;">
+
+    <div class="upi item delay-3">UPI ID: shravansash@fam</div>
+
+    <div class="steps item delay-4">
+      <span>1. Scan the QR and complete the payment</span>
+      <span>2. Take a screenshot of the payment</span>
+      <span>3. Click below and send it on WhatsApp</span>
+    </div>
+
+    <a class="whatsapp-btn item delay-5"
+       href="https://wa.me/918681014444?text=Paid,%20I%20just%20paid%20₹149%20for%20Almost%20Us.%20Here%20is%20the%20payment%20screenshot."
+       target="_blank">
+       Send Payment Proof on WhatsApp
+    </a>
+
+    <div class="note item delay-5">
+      If you don’t receive the ebook within 24 hours, you’ll be refunded.
+    </div>
+
+  </div>
+
+</body>
+</html>
