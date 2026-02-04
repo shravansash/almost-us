@@ -226,6 +226,93 @@ button:hover {
   background: var(--buy);
   color: #111827;
 }
+
+.cinematic-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  background: 
+    radial-gradient(
+      ellipse at center,
+      rgba(0,0,0,0) 55%,
+      rgba(0,0,0,0.35) 75%,
+      rgba(0,0,0,0.65) 100%
+    ),
+    url("scene1.png");
+
+  background-size: cover;
+  background-position: center;
+
+  filter: 
+    blur(1.5px)
+    contrast(0.9)
+    saturate(0.85);
+
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+@keyframes slowDrift {
+  0% { transform: scale(1.02) translateY(0); }
+  100% { transform: scale(1.06) translateY(-12px); }
+}
+
+.cinematic-bg {
+  animation: slowDrift 5s ease-in-out infinite alternate;
+}
+
+/* --- GOLDEN LIGHT BLOOM --- */
+.cinematic-bg::after {
+  content: "";
+  position: absolute;
+  inset: -10%;
+
+  background:
+    radial-gradient(
+      circle at 40% 55%,
+      rgba(255, 200, 120, 0.45),
+      rgba(255, 180, 90, 0.28) 40%,
+      rgba(255, 160, 70, 0.14) 60%,
+      rgba(255, 140, 60, 0.05) 75%,
+      transparent 85%
+    );
+
+  filter: blur(60px);
+  opacity: 1;
+
+  pointer-events: none;
+}
+
+/* --- FILM GRAIN OVERLAY --- */
+.cinematic-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+
+  pointer-events: none;
+}
+
+@keyframes grainShift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-2%, -2%); }
+}
+
+.cinematic-bg::before {
+  animation: grainShift 6s steps(10) infinite;
+}
+
 </style>
 </head>
 
@@ -246,6 +333,8 @@ button:hover {
     <div class="typing" id="typing"></div>
   </div>
 </section>
+
+<div class="cinematic-bg"></div>
 
 <section class="section" id="synopsis">
   <div class="highlight">Synopsis</div>
@@ -295,4 +384,3 @@ window.addEventListener('scroll', () => {
 
 </body>
 </html>
-
